@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Delights - Artisanal Bakery & Pastry Shop</title>
+    <!-- Font Google Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #8B4513;        /* Saddle Brown */
+            --primary-dark: #5C2C0B;   /* Dark Brown */
+            --accent: #D97706;         /* Warm Gold/Amber */
+            --accent-light: #FDE68A;   /* Soft Gold */
+            --bg-cream: #FAF6F0;       /* Soft Bakery Cream */
+            --bg-card: #FFFFFF;
+            --text-main: #2D2422;
+            --text-muted: #6E6259;
+            --shadow: 0 10px 25px -5px rgba(139, 69, 19, 0.08), 0 8px 10px -6px rgba(139, 69, 19, 0.04);
+            --shadow-hover: 0 20px 30px -10px rgba(139, 69, 19, 0.15);
+            --radius: 16px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-cream);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            background-color: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+            transition: var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo i {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cart-btn {
+            background-color: var(--primary);
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+            transition: var(--transition);
+        }
+
+        .cart-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .cart-count {
+            background-color: var(--accent);
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .hero {
+            padding: 60px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #F3E8DC;
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 3.8rem;
+            line-height: 1.15;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero-description {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 500px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #B45309;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-img-main {
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .badge-experience {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--bg-card);
+            padding: 20px 24px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-hover);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .badge-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-light);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .badge-text h4 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+        }
+
+        .badge-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .section-padding {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            height: 420px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .feature-icon {
+            background-color: #F3E8DC;
+            color: var(--primary);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-text h5 {
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .feature-text p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        .catalog {
+            background-color: #F4ECE1;
+        }
+
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            background: var(--bg-card);
+            border: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-main);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background-color: var(--accent);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .product-img-wrapper {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.08);
+        }
+
+        .product-details {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .product-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #F0E6DF;
+            padding-top: 16px;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .add-cart-btn {
+            background-color: #F3E8DC;
+            color: var(--primary);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .add-cart-btn:hover {
+            background-color: var(--accent);
+            color: #fff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info {
+            background-color: var(--primary-dark);
+            color: #fff;
+            padding: 48px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info h3 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            color: var(--accent-light);
+        }
+
+        .contact-info p {
+            color: #D1C7BD;
+            margin-bottom: 30px;
+        }
+
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .contact-icon {
+            width: 46px;
+            height: 46px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-light);
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #E5DCD3;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: #FAF8F5;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(217, 119, 6, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .footer {
+            background-color: #231B19;
+            color: #A3968C;
+            padding: 70px 0 30px;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand .logo {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            margin-bottom: 20px;
+            max-width: 300px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 38px;
+            height: 38px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+            padding-left: 4px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .newsletter-input {
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            flex-grow: 1;
+            font-family: inherit;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero-grid, .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .hero-image-wrapper {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Can be toggled with JS if needed */
+            }
+
+            .hero-title {
+                font-size: 2.4rem;
+            }
+
+            .badge-experience {
+                position: relative;
+                bottom: 0;
+                left: 0;
+                margin-top: -30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-cookie-bite"></i>
+                Sweet Delights
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Profil Kami</a></li>
+                <li><a href="#menu">Katalog Kue</a></li>
+                <li><a href="#contact">Kontak & Lokasi</a></li>
+            </ul>
+            <a href="#menu" class="cart-btn">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Keranjang</span>
+                <span class="cart-count">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-tag">
+                        <i class="fa-solid fa-wheat-awn"></i> 100% Bahan Organik & Segar
+                    </div>
+                    <h1 class="hero-title">Kehangatan & Kelezatan di <span>Setiap Gigitan</span></h1>
+                    <p class="hero-description">Nikmati koleksi kue dan pastry buatan tangan yang dibuat dengan resep otentik, penuh kehangatan, serta cinta untuk momen istimewa Anda.</p>
+                    <div class="hero-cta">
+                        <a href="#menu" class="btn btn-primary">
+                            <i class="fa-solid fa-utensils"></i> Lihat Katalog
+                        </a>
+                        <a href="#about" class="btn btn-outline">Tentang Kami</a>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Delicious Chocolate Cake" class="hero-img-main" onerror="this.src='https://placehold.co/800x600/8B4513/FFF?text=Sweet+Delights+Cake'">
+                    <div class="badge-experience">
+                        <div class="badge-icon">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div class="badge-text">
+                            <h4>Resep Artisanal</h4>
+                            <p>Dipanggang Segar Setiap Hari</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=800&q=80" alt="Baking Process" class="about-img" onerror="this.src='https://placehold.co/800x600/D97706/FFF?text=Proses+Pembuatan+Kue'">
+                </div>
+                <div class="about-content">
+                    <h3>Cerita Di Balik Kelezatan Sweet Delights</h3>
+                    <p>Berdiri sejak tahun 2015, Sweet Delights berawal dari sebuah dapur rumahan dengan satu impian sederhana: menghadirkan kue dengan rasa otentik yang mampu mengukir senyum di setiap perayaan.</p>
+                    <p>Kami percaya bahwa kue yang lezat berasal dari bahan-bahan terbaik. Kami menggunakan mentega murni, cokelat Belgia premium, dan buah-buahan segar tanpa bahan pengawet buatan.</p>
+
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h5>Bahan Alami</h5>
+                                <p>Tanpa pengawet & pemanis buatan</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-fire-burner"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h5>Freshly Baked</h5>
+                                <p>Dipanggang langsung setiap pagi</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h5>Koki Berpengalaman</h5>
+                                <p>Dibuat oleh pastry chef profesional</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fa-solid fa-truck-fast"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h5>Pengiriman Aman</h5>
+                                <p>Garansi tiba dengan kondisi sempurna</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding catalog" id="menu">
+        <div class="container">
+            <div class="section-title">
+                <h2>Katalog Produk Pilihan</h2>
+                <p>Jelajahi berbagai varian kue tart, pastry, dan dessert lezat yang siap memanjakan lidah Anda.</p>
+            </div>
+
+            <div class="category-filter">
+                <button class="filter-btn active">Semua Kue</button>
+                <button class="filter-btn">Layer Cakes</button>
+                <button class="filter-btn">Pastry & Croissant</button>
+                <button class="filter-btn">Cupcakes</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <span class="product-badge">Terfavorit</span>
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=500&q=80" alt="Belgian Chocolate Cake" class="product-img" onerror="this.src='https://placehold.co/500x400/8B4513/FFF?text=Cokelat+Belgia'">
+                    </div>
+                    <div class="product-details">
+                        <h4 class="product-title">Belgian Fudge Cake</h4>
+                        <p class="product-desc">Kue cokelat lembab berlapis ganache cokelat Belgia murni 70% yang kaya rasa.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Rp 280.000</span>
+                            <button class="add-cart-btn" onclick="addToCart('Belgian Fudge Cake')" title="Tambah ke Keranjang">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <span class="product-badge" style="background-color: #059669;">Baru</span>
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=500&q=80" alt="Strawberry Shortcake" class="product-img" onerror="this.src='https://placehold.co/500x400/D97706/FFF?text=Strawberry+Shortcake'">
+                    </div>
+                    <div class="product-details">
+                        <h4 class="product-title">Berry Delight Shortcake</h4>
+                        <p class="product-desc">Sponge cake lembut dengan lapisan krim vanila segar dan potongan buah stroberi manis.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Rp 245.000</span>
+                            <button class="add-cart-btn" onclick="addToCart('Berry Delight Shortcake')" title="Tambah ke Keranjang">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80" alt="Butter Croissant" class="product-img" onerror="this.src='https://placehold.co/500x400/8B4513/FFF?text=Butter+Croissant'">
+                    </div>
+                    <div class="product-details">
+                        <h4 class="product-title">French Butter Croissant</h4>
+                        <p class="product-desc">Pastry khas Prancis berlapis renyah di luar dan lembut wangi mentega di dalam.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Rp 28.000</span>
+                            <button class="add-cart-btn" onclick="addToCart('French Butter Croissant')" title="Tambah ke Keranjang">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=500&q=80" alt="Red Velvet Cupcake" class="product-img" onerror="this.src='https://placehold.co/500x400/D97706/FFF?text=Red+Velvet'">
+                    </div>
+                    <div class="product-details">
+                        <h4 class="product-title">Red Velvet Cream Cheese</h4>
+                        <p class="product-desc">Cupcake red velvet klasik ditaburi topping cream cheese gurih dan crumble renyah.</p>
+                        <div class="product-footer">
+                            <span class="product-price">Rp 32.000</span>
+                            <button class="add-cart-btn" onclick="addToCart('Red Velvet Cream Cheese')" title="Tambah ke Keranjang">
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div>
+                        <h3>Kunjungi Dapur Kami</h3>
+                        <p>Kami selalu senang menyambut Anda. Datang dan nikmati aroma harum kue segar langsung dari oven!</p>
+                        
+                        <ul class="contact-list">
+                            <li class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <strong>Alamat Store:</strong><br>
+                                    Jl. Melati Anggrek No. 45, Kota Baru, Jakarta
+                                </div>
+                            </li>
+                            <li class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <strong>Telepon / WhatsApp:</strong><br>
+                                    +62 812-3456-7890
+                                </div>
+                            </li>
+                            <li class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div>
+                                    <strong>Jam Operasional:</strong><br>
+                                    Senin - Minggu: 07.00 - 21.00 WIB
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 style="color: var(--primary-dark); margin-bottom: 20px; font-size: 1.8rem;">Pesan Spesial / Pertanyaan</h3>
+                    <form onsubmit="handleFormSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Nama Lengkap</label>
+                            <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email / Nomor WhatsApp</label>
+                            <input type="text" id="email" class="form-control" placeholder="Contoh: 0812345678" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Pesan atau Permintaan Custom Cake</label>
+                            <textarea id="message" class="form-control" placeholder="Tuliskan detail pesanan Anda..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            <i class="fa-solid fa-paper-plane"></i> Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo brand-font">
+                        <i class="fa-solid fa-cookie-bite" style="color: var(--accent);"></i>
+                        Sweet Delights
+                    </a>
+                    <p>Toko kue artisanal yang mengutamakan kualitas bahan, keaslian rasa, dan kehangatan dalam setiap sajian.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Navigasi Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Profil Kami</a></li>
+                        <li><a href="#menu">Katalog Kue</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Kategori</h4>
+                    <ul class="footer-links">
+                        <li><a href="#menu">Birthday Cakes</a></li>
+                        <li><a href="#menu">Custom Tart</a></li>
+                        <li><a href="#menu">French Pastry</a></li>
+                        <li><a href="#menu">Cookies & Gifts</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Langganan Promo</h4>
+                    <p style="font-size: 0.85rem; margin-bottom: 12px;">Dapatkan info diskon dan menu musiman terbaru langsung ke email Anda.</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Terima kasih telah berlangganan!');">
+                        <input type="email" class="newsletter-input" placeholder="Email Anda" required>
+                        <button type="submit" class="btn btn-primary" style="padding: 10px 16px;">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Sweet Delights Bakery. Seluruh hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let cartCount = 0;
+
+        function addToCart(productName) {
+            cartCount++;
+            document.querySelector('.cart-count').textContent = cartCount;
+            
+            // Visual feedback via temporary notification widget (replacing browser alert)
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 24px;
+                right: 24px;
+                background-color: #8B4513;
+                color: white;
+                padding: 14px 24px;
+                border-radius: 12px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                z-index: 9999;
+                font-size: 0.95rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                animation: slideIn 0.3s ease;
+            `;
+            notification.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #FDE68A;"></i> <strong>${productName}</strong> berhasil ditambahkan!`;
+            
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 2500);
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            
+            // Simple submission feedback
+            const form = event.target;
+            form.innerHTML = `
+                <div style="text-align: center; padding: 40px 20px;">
+                    <i class="fa-solid fa-circle-check" style="font-size: 3rem; color: #D97706; margin-bottom: 16px;"></i>
+                    <h3 style="color: #5C2C0B; margin-bottom: 8px;">Terima Kasih, ${name}!</h3>
+                    <p style="color: #6E6259;">Pesan Anda telah kami terima. Tim Sweet Delights akan segera menghubungi Anda kembali.</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
